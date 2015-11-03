@@ -4,6 +4,7 @@ using System.Collections;
 public class Movement : MonoBehaviour {
 
 	public Rigidbody rb;
+	public float speed;
 
 
 	// Use this for initialization
@@ -18,7 +19,7 @@ public class Movement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		rb.velocity = transform.forward * 10f + Physics.gravity;
+		rb.velocity = transform.forward * speed + Physics.gravity;
 
 
 		Ray moveRay = new Ray( transform.position, transform.forward) ;
@@ -36,4 +37,8 @@ public class Movement : MonoBehaviour {
 	} 
 
 }
+	public void Restart () {
+		Application.LoadLevel("Scene1");
 }
+}
+

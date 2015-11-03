@@ -4,6 +4,7 @@ using System.Collections;
 public class Mouse : MonoBehaviour {
 
 	public Transform cat;
+	public AudioSource seecat;
 	Rigidbody rb;
 
 	// Use this for initialization
@@ -20,6 +21,7 @@ public class Mouse : MonoBehaviour {
 			RaycastHit mouseRayHitInfo = new RaycastHit();
 		if ( Physics.Raycast ( mouseRay, out mouseRayHitInfo, 40f ) ) {
 			if (mouseRayHitInfo.collider.tag == "Cat") {
+					seecat.Play();
 					rb.AddForce(-directionToCat.normalized * 1000f);
 			}
 		}
